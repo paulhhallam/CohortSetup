@@ -1,0 +1,6 @@
+*.deb
+.terraform
+.tfstate
+.tfstate.backup
+accountdetails.tfvars
+saved
