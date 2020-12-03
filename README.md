@@ -1,4 +1,5 @@
-These instructions will allow thge user to:
+These instructions will allow the user to:
+==========================================
 
 	Under PSACreateAccounts
 	 	create the IAM roles, Groups and Policies

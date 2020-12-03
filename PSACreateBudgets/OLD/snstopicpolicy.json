@@ -1,9 +1,0 @@
-{
-  "Sid": "AWSBudgets-notification-1",
-  "Effect": "Allow",
-  "Principal": {
-     "Service": "budgets.amazonaws.com"
-  },
-  "Action": "SNS:Publish",
-  "Resource": "arn:aws:sns:eu-west-2:317335576103:AccountBudgetStack-EmailSNSTopic-TIULNRYPEMM7"
-}
