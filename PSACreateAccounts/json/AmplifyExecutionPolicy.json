@@ -1,0 +1,26 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Resource": [
+                "arn:aws:logs:eu-west-2:624703823752:log-group:/aws/amplify/dozw08h9yy6n2",
+                "arn:aws:logs:eu-west-2:624703823752:log-group:/aws/amplify/dozw08h9yy6n2:*"
+            ],
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Resource": [
+                "arn:aws:codecommit:eu-west-2:624703823752:BN-ReactApp"
+            ],
+            "Action": [
+                "codecommit:GitPull"
+            ]
+        }
+    ]
+}

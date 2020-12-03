@@ -1,0 +1,25 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": [
+                "codecommit:GitPush",
+                "codecommit:DeleteBranch",
+                "codecommit:PutFile"
+            ],
+            "Resource": "arn:aws:codecommit:*:755131205255:*",
+            "Condition": {
+                "StringEqualsIfExists": {
+                    "codecommit:References": [
+                        "refs/heads/master",
+                        "refs/heads/prod"
+                    ]
+                },
+                "Null": {
+                    "codecommit:References": false
+                }
+            }
+        }
+    ]
+}

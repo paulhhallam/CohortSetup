@@ -1,0 +1,53 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "sns:Publish",
+            "Resource": "arn:aws:sns:*:*:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "logs:CreateLogGroup",
+            "Resource": "arn:aws:logs:::*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": [
+                "arn:aws:logs:::log-group:/aws/lambda/Daily_Budget:*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ce:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "aws-portal:*Billing",
+                "aws-portal:*Usage",
+                "aws-portal:*PaymentMethods",
+                "budgets:ViewBudget",
+                "budgets:ModifyBudget",
+                "cur:*",
+                "purchase-orders:*PurchaseOrders"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": "aws-portal:*",
+            "Resource": "*"
+        }
+    ]
+}
