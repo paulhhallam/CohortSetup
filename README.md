@@ -1,65 +1,50 @@
-set TF_VAR_OrgAccountId="940700818461"
+These instructions will allow thge user to:
 
+	Under PSACreateAccounts
+	 	create the IAM roles, Groups and Policies
+		Create the iam users and assign the relevant groups
+
+	Under PSACreateBudgets
+		Create the monthly budget monitoring and alerting under AWS Budgets
+		Create the Daily budget alert which sens emails to account owners if budgets exceed pre-defined values 
+
+	Under PSACreateTagging
+		Create the Lambda, Cloudwatch and CloudTrail setup using Cloudformation temp[lates to auto tag EC2 and RDS
+
+	Under PSACohortInstanceScheduler
+		This creates the role that allows the organisation owner account to schedule instance (EC2 and RDS) shutdowns 
+
+IMPORTANT
+=========
+
+1) 	The Purple Sky Academy account can be passed in using the command line or it can be set in the file accountdetails.tfvars (mentioned below)
+	e.g.
+		$ export TF_VAR_OrgAccountId="940700818461"
         terraform apply -var-file="../accountdetails.tfvars"
-or
-        terraform apply -var-file="../accountdetails.tfvars" -auto-approve
 
+2) 	The file default_accountdetails.tfvars should be copied to accountdetails.tfvars
+	n.b. this file is in .gitignore and will not be uploaded to git as it will contain email addresses.
 
+To run
+======
 
+a)	using "aws configure" setup the environment to connect to thge cohort account
 
-To create the new cohort account, its policies, groups, users, budgets, autotagging and scheduler execute 
+b) 	Edit accountdetails.tfvars as mentioned above
 
-	"create-psa-sub.bash"
+c) 	cd PSACreateAccounts
+	terraform apply -var-file="../accountdetails.tfvars"
+	Some errors can occur so please do read the README.md in that directory.
 
-To 'almost' delete the account execute 
+d) 	cd ..
+	cd PSACreateBudgets
+        terraform apply -var-file="../accountdetails.tfvars"
 
-	"destroy-psa-sub.bash". 
+e)	cd ..
+	cd PSACreateTagging
+        terraform apply -var-file="../accountdetails.tfvars"
 
-This will NOT perform the final deletion of the account but it will delete the policies, groups, users, budgets etc that these scripts have previously created.
+f)	cd ..
+	cd PSACohortInstanceScheduler
+        terraform apply -var-file="../accountdetails.tfvars"
 
-The destroy procedure can save the IAM setup but terraform does not have a simple way to execute the AWS command; because of this if you wish to save the account setup then AWS CLI must be installed and you must be connected to the account (i.e. aws configure"). The script gives you the option of bypassing this step and therefore you do not have to have aws cli installed.
-
-Each of the individual steps required can be executerd by entering the subdirectory and executing the terraform scripts; it should be noted however that the primary tfstate file will then be incorrect.
-
-TERRAFORM SCRIPTS
-=================
-Each directory listed here has its own README file to aid in understanding what is being performed.
-
-Under the "OrgSubAccount" directory
-
-  These scripts will create the Organisation sub account 
-
-  The account is created using the terraform scripts in the "OrgSubAccount" subdirectory.
-
-
-Under the Accounts directory
-
-  These scripts will create the policies, groups and users
-
- 	User management
-
-	policies
-
-	groups
-
-	users
-
-  The above are all created using terraform scripts in the "Accounts" subdirectory.
-
-  Note that because of the way users and groups are configured should an error occur when creating or deleting an account the terraform user just needs to run the "terraform apply" command twice.
-
-
-Under the InstanceMgmt directory
-
-  The following are all created 
-
-	the autotag rules and function
-
-	the instance scheduler organisation setup
-
-        the instance scheduler sub account policy setup
-
-  The above are all created using terraform scripts in the "InstanceMgmt" subdirectory.
-
-N.B. once the instance scheduler sub account policy the policy ARN, outputted by the terraform script, needs to be added to the list of ARN's in the instance scheduler organisation dynamo db table.
-Hopefully I will be able to complete this soon.
