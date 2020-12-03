@@ -13,6 +13,7 @@ These instructions will allow thge user to:
 
 	Under PSACohortInstanceScheduler
 		This creates the role that allows the organisation owner account to schedule instance (EC2 and RDS) shutdowns 
+		Record the output of this script as it will be needed for configuring the Organisation schedule manager
 
 IMPORTANT
 =========
