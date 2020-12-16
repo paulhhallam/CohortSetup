@@ -2,20 +2,23 @@ These instructions should be executed in this order and will allow the user to:
 ===============================================================================
 
 
-        Under OnceOnlySetup
-                Set up the terraform state locking to prevent two or more people 
+	Under OnceOnlySetup
+                Run this only once otherwise the terraform state may be lost.
+		Set up the terraform state locking to prevent two or more people 
 		running state changes at the same time
 
 	Under PSACreateAccounts
 	 	create the IAM roles, Groups and Policies
 		Create the iam users and assign the relevant groups
+		This can be run numerous times to add new users,roles, groups and policies; 
+		just be careful that no unexpected deletes are in the list before you reply yes to continue.
 
 	Under PSACreateBudgets
 		Create the monthly budget monitoring and alerting under AWS Budgets
 		Create the Daily budget alert which sens emails to account owners if budgets exceed pre-defined values 
 
 	Under PSACreateTagging
-		Create the Lambda, Cloudwatch and CloudTrail setup using Cloudformation temp[lates to auto tag EC2 and RDS
+		Create the Lambda, Cloudwatch and CloudTrail servcise using Cloudformation templates to auto tag EC2 and RDS instances.
 
 	Under PSACohortInstanceScheduler
 		This creates the role that allows the organisation owner account to schedule instance (EC2 and RDS) shutdowns 
