@@ -11,7 +11,7 @@ variable "region_prod" {
 }
 
 # AWS Account / Cohort details
-variable "aws_cohort_id" {
+variable "cohort_id" {
   type    = string
   default = ""
 }

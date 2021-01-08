@@ -5,7 +5,7 @@
 # Create the bucket, set encryption and versioning
 #
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = join("",var.cohort_id,"psa-cohort-state-files")
+  bucket = join("",[var.cohort_id,"-psa-cohort-state-files"])
   versioning {
     enabled = true
   }
