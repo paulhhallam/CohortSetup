@@ -73,9 +73,9 @@
 output "userids" {
   value = module.users.userids
 }
-#output "passwords" {
-#  value = module.users.passwords
-#}
+output "passwords" {
+  value = module.users.passwords
+}
 output "puserids" {
   value = module.users.puserids
 }

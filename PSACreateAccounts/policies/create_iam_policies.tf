@@ -83,7 +83,7 @@ resource "aws_iam_policy" "cognito-idp-all" {
 resource "aws_iam_policy" "AmplifyConsoleAccess" {
   name        = "AmplifyConsoleAccess"
   path        = "/"
-  policy = file("${path.module}//json/AmplifyConsoleAccess"
+  policy      = file("${path.module}//json/AmplifyConsoleAccess.json")
 }
 
 ### Create the SSM_SSH policies

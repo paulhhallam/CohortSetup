@@ -1,6 +1,8 @@
 
 	Important notes before you begin
+et the account id as an environment variable for terraform state locking
 
+   export TF_CLI_ARGS_init='-backend-config="bucket=<account_name>-psa-cohort-state-files"'
 
 1) Use the following command to perform the apply as the account details are 
    held in the cohort main directory

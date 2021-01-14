@@ -1,6 +1,6 @@
 cohort_id = "<the cohort name / id >"
 
-monthly_budget_alert_email_list = ["finbarro@tutanota.com", "paul.hh@tutanota.com", "Elwyn@tutanota.com", "psabod1@tutanota.com"]
+monthly_budget_alert_email_list = ["finbarro@tutanota.com", "paul.hh@tutanota.com", "elwyn.p@tutanota.com", "psabod1@tutanota.com"]
 daily_budget_alert_list = ["finbarro@tutanota.com", "paul.hh@tutanota.com"]
 
 slack_default_channel_name = "cloud-env-ops"

@@ -1,6 +1,6 @@
 provider "aws" {
   version = "~> 3.0"
-  profile = "testing"
+#  profile = "testing"
   region  = var.region_dev
 }
 

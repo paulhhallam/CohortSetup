@@ -74,7 +74,7 @@ variable "DevCohortRolePolicy" {
   type = string
   default = ""
 }
-variable "AmplifyConsoleAccess"
+variable "AmplifyConsoleAccess" {
   type = string
   default = ""
 }
