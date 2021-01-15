@@ -12,6 +12,11 @@ A) Create an S3 bucket with versioning and encryption enabled called psa-cohort-
 
 B) Create a dynamodb table called PSA_State_Locks to hold the Terraform lock id.
 
+******************************************************************
+******************************************************************
+**  IMPORTANT - remember to add the -var-file when running apply
+******************************************************************
+******************************************************************
 Run the command:
         terraform apply -var-file="../accountdetails.tfvars"
 
