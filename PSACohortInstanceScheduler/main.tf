@@ -3,9 +3,9 @@
 #
 terraform {
   backend "s3" {
-    key            = "PSA_state_files/cohort/InstanceScheduler/tfstate"
+    key            = "P_state_files/cohort/InstanceScheduler/tfstate"
     region         = "eu-west-2"
-    dynamodb_table = "PSA_State_Locks"
+    dynamodb_table = "P_State_Locks"
     encrypt        = true
   }
 }
