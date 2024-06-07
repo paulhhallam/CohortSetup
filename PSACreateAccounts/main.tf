@@ -3,10 +3,10 @@
 #
 terraform {
   backend "s3" {
-#   bucket         = "vs-appmigration-psa-cohort-state-files"
-    key            = "PSA_state_files/cohort/accounts/tfstate"
+#   bucket         = "vs-appmigration-p-cohort-state-files"
+    key            = "p_state_files/cohort/accounts/tfstate"
     region         = "eu-west-2"
-    dynamodb_table = "PSA_State_Locks"
+    dynamodb_table = "p_State_Locks"
     encrypt        = true
   }
 }
@@ -60,7 +60,7 @@ module "policies_to_groups" {
   DEVS-Lambdagroup  = module.groups.DEVS-Lambdagroup
   DEVS-Amplifygroup = module.groups.DEVS-Amplifygroup
   DEVS-Adminsgroup  = module.groups.DEVS-Adminsgroup
-  PSA-Adminsgroup   = module.groups.PSA-Adminsgroup
+  p-Adminsgroup   = module.groups.p-Adminsgroup
   DEVS_SSM_SSHgroup = module.groups.DEVS_SSM_SSHgroup
 
   Allow_user_change_credentials = module.policies.Allow_user_change_credentials
@@ -92,7 +92,7 @@ module "users" {
   source = "./users/"
   iam_cohort_users    = var.iam_cohort_users 
   iam_dev_admin_users = var.iam_dev_admin_users
-  iam_psa_admin_users = var.iam_psa_admin_users
+  iam_p_admin_users = var.iam_p_admin_users
   DEVSG1group         = module.groups.DEVSG1group
   DEVSG2group         = module.groups.DEVSG2group
   DEVSG3group         = module.groups.DEVSG3group
@@ -101,7 +101,7 @@ module "users" {
   DEVS-Lambdagroup    = module.groups.DEVS-Lambdagroup
   DEVS-Amplifygroup   = module.groups.DEVS-Amplifygroup
   DEVS-Adminsgroup    = module.groups.DEVS-Adminsgroup
-  PSA-Adminsgroup     = module.groups.PSA-Adminsgroup
+  p-Adminsgroup     = module.groups.p-Adminsgroup
   DEVS_SSM_SSHgroup   = module.groups.DEVS_SSM_SSHgroup
 
   Allow_user_change_credentials = module.policies.Allow_user_change_credentials
