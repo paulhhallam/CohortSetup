@@ -3,6 +3,6 @@ Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 Outputs:
 
 CrossAccountRole = {
-  "CrossAccountRole" = "arn:aws:iam::317335576103:role/psa-InstanceSchedulerSub-EC2SchedulerCrossAccountR-1707JTJUWWCGS"
+  "CrossAccountRole" = "arn:aws:iam::55555555:role/psa-InstanceSchedulerSub-EC2SchedulerCrossAccountGS"
 }
 
